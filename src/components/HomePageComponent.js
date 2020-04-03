@@ -23,9 +23,9 @@ class HomePageComponent extends React.Component {
             // Simple POST request with a JSON body using fetch
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            mode: 'no-cors',
-            data: JSON.stringify({ api_key: "d-O8SB-JQ76esEky1qs0OQ", api_secret: "TqxqygO5akXhzlD4LVrRQBYRUBwL3TSAAeho", host_id: "MigGUNgKSFKsmATXRoB22A", type: 1, topic: "Test" })
+            headers: { 'Content-Type': 'application/json'},
+            timeout: 10,
+            data: JSON.stringify({ key: "d-O8SB-JQ76esEky1qs0OQ", secret: "TqxqygO5akXhzlD4LVrRQBYRUBwL3TSAAeho", host_id: "MigGUNgKSFKsmATXRoB22A", type: 1, topic: "Test" })
         };
         fetch('https://api.zoom.us/v1/meeting/create', requestOptions)
             .then(function(response) {
