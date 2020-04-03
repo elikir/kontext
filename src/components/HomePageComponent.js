@@ -28,12 +28,17 @@ class HomePageComponent extends React.Component {
             data: JSON.stringify({ api_key: "d-O8SB-JQ76esEky1qs0OQ", api_secret: "TqxqygO5akXhzlD4LVrRQBYRUBwL3TSAAeho", host_id: "MigGUNgKSFKsmATXRoB22A", type: 1, topic: "Test" })
         };
         fetch('https://api.zoom.us/v1/meeting/create', requestOptions)
-            .then(function(response){
-                if (!response.ok) {
-                    console.log("Error");
-                }
-                console.log(response.json());
+            .then(function(response) {
+                return response.text().then(function(text) {
+                    console.log(text ? JSON.parse(text): response.json())
+                })
             })
+            // .then(function(response){
+            //     if (!response.ok) {
+            //         console.log("Error");
+            //     }
+            //     console.log(response.json());
+            // })
     }
 
     render() {
